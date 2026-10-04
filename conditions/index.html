@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions d'utilisation · ORINDIS</title>
+<meta name="description" content="Conditions d'utilisation — ORINDIS">
+<style>
+  :root{ --fond:#F5F7FA; --carte:#FFF; --txt:#15233B; --txt2:#5B6B86;
+         --bord:#E3E8F0; --bleu:#0B4DA2; }
+  @media (prefers-color-scheme: dark){
+    :root{ --fond:#0E1726; --carte:#16213A; --txt:#E8EDF6; --txt2:#9AA8C0;
+           --bord:#243352; --bleu:#6FA2F0; }
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; padding:28px 18px 64px; background:var(--fond);
+    color:var(--txt); font:16px/1.65 -apple-system,BlinkMacSystemFont,
+    "Segoe UI",Roboto,sans-serif; }
+  main{ max-width:680px; margin:0 auto; }
+  .marque{ display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    color:var(--bleu); text-decoration:none; }
+  .marque span{ font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    font-size:15px; }
+  .carte{ background:var(--carte); border:1px solid var(--bord);
+    border-radius:16px; padding:8px 24px 26px; }
+  h1{ font-size:25px; line-height:1.25; margin:18px 0 4px; }
+  h2{ font-size:16px; margin:26px 0 6px; }
+  p{ margin:12px 0; }
+  ul{ margin:12px 0; padding-left:20px; }
+  li{ margin:7px 0; }
+  .lang{ display:flex; gap:8px; margin:14px 0 0; }
+  .lang button{ font:600 13px inherit; color:var(--txt2); cursor:pointer;
+    background:none; border:1px solid var(--bord); border-radius:9px;
+    padding:6px 13px; }
+  .lang button[aria-pressed="true"]{ background:var(--bleu); color:#fff;
+    border-color:var(--bleu); }
+  nav.autres{ margin-top:26px; font-size:14px; }
+  nav.autres a{ color:var(--bleu); margin-right:16px; }
+  [hidden]{ display:none; }</style>
+</head>
+<body>
+<main>
+  <a class="marque" href="../"><svg viewBox="0 0 80 80" fill="none" stroke-linecap="butt"
+    stroke-width="11" width="30" height="30" aria-hidden="true">
+    <circle cx="40" cy="40" r="30" stroke="currentColor"
+      stroke-dasharray="59 130" transform="rotate(-88 40 40)"/>
+    <circle cx="40" cy="40" r="22" stroke="currentColor"
+      stroke-dasharray="43 96" transform="rotate(33 40 40)"/>
+    <circle cx="40" cy="40" r="14" stroke="#1D9E75"
+      stroke-dasharray="28 60" transform="rotate(154 40 40)"/>
+  </svg><span>ORINDIS</span></a>
+  <div class="carte">
+    <div class="lang">
+      <button type="button" data-set="fr" aria-pressed="true">Français</button>
+      <button type="button" data-set="en" aria-pressed="false">English</button>
+    </div>
+    <div data-l="fr">
+      <h1>Conditions d'utilisation</h1>
+      <p>Dernière mise à jour : ⟨date de mise en ligne⟩.</p><p>En utilisant ORINDIS, vous acceptez ce qui suit.</p><h2>Aucun conseil financier</h2><p>ORINDIS est un outil de calcul et d'organisation. L'application ne recommande rien, n'évalue aucune situation et ne remplace ni conseiller, ni comptable, ni planificateur financier. Les chiffres affichés découlent uniquement de ce que vous avez saisi et des règles que vous avez fixées. Les décisions sont les vôtres, et leurs conséquences aussi.</p><h2>Vos données, votre responsabilité</h2><p>Tout est enregistré sur votre appareil. Vider les données du navigateur, désinstaller l'application ou perdre l'appareil efface tout, sans récupération possible.</p><ul><li>Aucune copie n'est conservée ailleurs.</li><li>La sauvegarde vous revient : l'application propose un export, à vous de le faire.</li><li>L'éditeur ne peut restaurer aucune donnée perdue.</li></ul><h2>L'application est fournie telle quelle</h2><p>ORINDIS est gratuite et fournie sans garantie d'aucune sorte : ni d'exactitude, ni de disponibilité, ni d'adéquation à un usage particulier. Dans la limite permise par la loi, l'éditeur ne peut être tenu responsable d'une perte financière, d'une perte de données ou d'un dommage résultant de l'utilisation de l'application.</p><h2>Usage</h2><p>L'application est destinée à un usage personnel. Vous vous engagez à ne pas l'utiliser à des fins illégales.</p><h2>Évolutions</h2><p>L'application et ces conditions peuvent changer. Continuer à utiliser ORINDIS après une modification vaut acceptation.</p><h2>Droit applicable</h2><p>Ces conditions sont régies par le droit de la province de Québec et les lois du Canada qui s'y appliquent.</p>
+    </div>
+    <div data-l="en" hidden>
+      <h1>Terms of use</h1>
+      <p>Last updated: ⟨date de mise en ligne⟩.</p><p>By using ORINDIS, you agree to the following.</p><h2>No financial advice</h2><p>ORINDIS is a calculation and organisation tool. It recommends nothing, assesses no situation, and replaces neither an adviser, nor an accountant, nor a financial planner. The figures shown follow only from what you entered and the rules you set. The decisions are yours, and so are their consequences.</p><h2>Your data, your responsibility</h2><p>Everything is stored on your device. Clearing your browser data, uninstalling the app or losing the device erases everything, with no way to recover it.</p><ul><li>No copy is kept anywhere else.</li><li>Backing up is up to you: the app offers an export, you have to use it.</li><li>The publisher cannot restore any lost data.</li></ul><h2>The app is provided as is</h2><p>ORINDIS is free and provided without warranty of any kind: not of accuracy, not of availability, not of fitness for a particular purpose. To the extent permitted by law, the publisher cannot be held liable for financial loss, data loss or damage arising from use of the app.</p><h2>Use</h2><p>The app is intended for personal use. You agree not to use it for unlawful purposes.</p><h2>Changes</h2><p>The app and these terms may change. Continuing to use ORINDIS after a change means you accept it.</p><h2>Governing law</h2><p>These terms are governed by the law of the province of Québec and the laws of Canada that apply there.</p>
+    </div>
+  </div>
+  <nav class="autres">
+    <div data-l="fr"><a href="../politique/">Politique de confidentialité</a><a href="../mentions/">Mentions légales</a></div>
+    <div data-l="en" hidden><a href="../politique/">Privacy policy</a><a href="../mentions/">Legal notice</a></div>
+  </nav>
+</main>
+<script>
+  (function(){
+    var veut = (navigator.language || 'fr').slice(0,2) === 'en' ? 'en' : 'fr';
+    function poser(l){
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-l]').forEach(function(e){
+        e.hidden = e.getAttribute('data-l') !== l;
+      });
+      document.querySelectorAll('.lang button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.dataset.set === l));
+      });
+    }
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.addEventListener('click', function(){ poser(b.dataset.set); });
+    });
+    poser(veut);
+  })();</script>
+</body>
+</html>
