@@ -8,7 +8,6 @@
 <title>Soutien · ORINDIS</title>
 <meta name="description" content="Soutien — ORINDIS">
 <style>
-  /* Les couleurs viennent de css/tokens.css, pas d'une approximation. */
   :root{ --fond:#F2F4F7; --carte:#FFFFFF; --bord:#E2E6EC;
          --txt:#141821; --txt2:#5A6274;
          --bleu:#0B4DA2; --lien:#0B4DA2; --vert:#1D9E75;
@@ -39,10 +38,6 @@
   p{ margin:12px 0; }
   ul{ margin:12px 0; padding-left:20px; }
   li{ margin:7px 0; }
-  /* ⚠ LE SÉLECTEUR REPREND LA FORME DE CELUI DE L'APPLICATION : un étui
-     arrondi, des segments, l'actif en bleu plein — comme la bascule
-     Épargnes / Dettes. Trois boutons alignés sans étui se lisaient comme
-     trois actions séparées, pas comme un choix unique. */
   .barre{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0;
     align-items:center; }
   .seg{ display:inline-flex; gap:4px; background:var(--fond);
@@ -53,8 +48,6 @@
   .seg button:hover{ color:var(--txt); }
   .seg button[aria-pressed="true"]{ background:var(--lien); color:var(--carte); }
   .seg button svg{ display:block; }
-  /* ⚠ LES LIENS DU CORPS N'AVAIENT AUCUNE RÈGLE : ils prenaient le bleu par
-     défaut du navigateur, illisible sur fond sombre. */
   a{ color:var(--lien); }
   a:hover{ text-decoration-thickness:2px; }
   .carte a{ overflow-wrap:anywhere; }
@@ -90,23 +83,26 @@ sauvegarde : elle vous appartient, et c'est la seule protection qui existe.</p>
 <h2>Délai de réponse</h2>
 <p>ORINDIS est publié par une personne seule. Les messages reçoivent une réponse
 dès que possible, sans garantie de délai.</p></div>
-    <div data-l="en" hidden>
-      <h1>Legal notice</h1>
-      <h2>Publisher</h2><p>ORINDIS is published by Hervé Anaël Luvodique Ahossi, an individual, Montréal, Québec, Canada.</p><h2>Contact: contact@orindis.com</h2><p>Person responsible for personal information under Québec's Law 25: Hervé Ahossi, reachable at the address above.</p><h2>Hosting</h2><p>The app runs on your device. The orindis.com website is hosted by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. The domain name is registered with IONOS Inc., Two Logan Square, 100 N 18th St., Suite 400, Philadelphia, PA 19103, USA.</p><h2>Ownership</h2><p>The name ORINDIS, its symbol and its interface belong to the publisher.</p><h2>App version: 1.0</h2>
-    </div>
+    <div data-l="en" hidden><h1>Support</h1>
+<p>A question, a problem, a suggestion: write to
+<a href="mailto:contact@orindis.com">contact@orindis.com</a>.</p>
+<h2>Reporting a problem from the app</h2>
+<p>Settings, then Report a problem. ORINDIS prepares an email describing the
+structure of your accounts — and your amounts only if you tick the box
+provided. Nothing is sent until you press Send yourself.</p>
+<h2>Getting your data back</h2>
+<p>Everything is stored on your device, and nowhere else. Clearing your
+browser data or uninstalling the app erases it all, with no way to recover it.
+Settings, then My data, lets you export a backup: it is yours, and it is the
+only protection that exists.</p>
+<h2>Response time</h2>
+<p>ORINDIS is published by one person. Messages are answered as soon as
+possible, with no guaranteed delay.</p></div>
   </div>
   <nav class="autres"><div data-l="fr"><a href="../politique/">Politique de confidentialité</a><a href="../conditions/">Conditions d'utilisation</a><a href="../mentions/">Mentions légales</a></div><div data-l="en" hidden><a href="../politique/">Privacy policy</a><a href="../conditions/">Terms of use</a><a href="../mentions/">Legal notice</a></div></nav>
 </main>
 <script>
   (function(){
-    /* ⚠ UNE BASCULE, PAS SEULEMENT LA TEINTE DU SYSTÈME. Un visiteur dont
-       l'appareil est en sombre ne peut pas lire en clair, et l'inverse. Le
-       choix est retenu d'une visite à l'autre ; « Auto » rend la main au
-       système.
-
-       ⚠ ET ON N'EFFACE JAMAIS LE STOCKAGE. L'application vivra un jour sur ce
-       même domaine : une page qui vide le stockage emporterait ses données.
-       On écrit UNE clé, on ne touche à rien d'autre. */
     var CLE = 'orindis_theme_pages';
     function lire(){ try { return localStorage.getItem(CLE); } catch(e){ return null; } }
     function ecrire(v){ try { v ? localStorage.setItem(CLE, v)
