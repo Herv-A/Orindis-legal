@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Essai Turnstile</title>
+<!--
+  ⚠ PAGE D'ESSAI, À RETIRER APRÈS L'ESSAI — ORINDIS, 11 novembre 2026.
+  Elle répond à une seule question : le test anti-robot de Cloudflare
+  (Turnstile) fonctionne-t-il quand cette page est affichée DANS
+  l'application iPhone et Android d'ORINDIS ? Seules les CLÉS DE TEST
+  PUBLIQUES de Cloudflare sont employées : aucun secret, aucun compte, et
+  le jeton produit ne vaut rien chez aucun serveur.
+
+  Modes (paramètre ?mode=) : invisible · gere · interactif · refus.
+  Le résultat est dit à la page parente (l'application), et rien d'autre :
+  ni le jeton, ni aucune donnée de la personne.
+-->
+<style>
+  html,body{margin:0;background:transparent;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#141821}
+  #w{display:flex;justify-content:center;min-height:0}
+  #etat{margin:6px 0 0;font-size:12px;color:#5A6274;text-align:center}
+</style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=pret&render=explicit" async defer></script>
+</head>
+<body>
+<div id="w"></div>
+<div id="etat">Chargement…</div>
+<script>
+  var CLES = {
+    invisible: '1x00000000000000000000BB',
+    gere: '1x00000000000000000000AA',
+    interactif: '3x00000000000000000000FF',
+    refus: '2x00000000000000000000AB'
+  };
+  /* Seules les deux adresses internes de l'application reçoivent le résultat. */
+  var ORIGINES = ['capacitor://localhost', 'https://localhost'];
+  var mode = new URLSearchParams(location.search).get('mode') || 'invisible';
+  if (!CLES[mode]) mode = 'invisible';
+  var t0 = Date.now();
+
+  function dire(m){
+    m.type = 'orindis-turnstile'; m.mode = mode; m.ms = Date.now() - t0;
+    document.getElementById('etat').textContent =
+      (m.ok ? 'Vérifié' : 'Échec : ' + m.erreur) + ' · ' + mode + ' · ' + m.ms + ' ms';
+    if (window.parent && window.parent !== window){
+      ORIGINES.forEach(function(o){ try { window.parent.postMessage(m, o); } catch (e) {} });
+    }
+  }
+
+  window.pret = function(){
+    try {
+      turnstile.render('#w', {
+        sitekey: CLES[mode],
+        theme: 'light',
+        callback: function(jeton){ dire({ok: true, longueur: (jeton || '').length}); },
+        'error-callback': function(code){ dire({ok: false, erreur: String(code)}); return true; },
+        'expired-callback': function(){ dire({ok: false, erreur: 'expire'}); },
+        'unsupported-callback': function(){ dire({ok: false, erreur: 'non pris en charge'}); }
+      });
+    } catch (e) { dire({ok: false, erreur: String(e && e.message || e)}); }
+  };
+  /* Le script de Cloudflare qui ne se charge jamais doit se dire aussi. */
+  setTimeout(function(){ if (typeof turnstile === 'undefined') dire({ok: false, erreur: 'script non chargé'}); }, 10000);
+</script>
+</body>
+</html>
