@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data:">
+<title>ORINDIS</title>
+<link rel="stylesheet" href="verification.css">
+<!--
+  ⚠ LA VÉRIFICATION ANTI-ROBOT D'ORINDIS — 11 novembre 2026.
+  L'application l'affiche dans un cadre, sur l'inscription, la connexion,
+  le renvoi du code et le mot de passe oublié. Elle n'est pas faite pour
+  être ouverte seule.
+
+  CE QU'ELLE VOIT : rien de la personne. Ni adresse, ni mot de passe — ils
+  restent dans l'application. Elle produit un jeton à usage unique et le
+  remet à l'application, qui le joint à sa demande au serveur ; c'est le
+  serveur qui le vérifie auprès de Cloudflare, avec une clé secrète qui
+  n'est PAS ici.
+
+  CE QUI EST PUBLIC ICI, ET DOIT L'ÊTRE : la clé de site Cloudflare. Elle
+  identifie le widget ; elle ne permet rien d'autre.
+-->
+</head>
+<body>
+<div id="w"></div>
+<script src="verification.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=orindisPret&render=explicit" async defer></script>
+</body>
+</html>
